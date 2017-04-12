@@ -32,6 +32,8 @@ func (r *Responses) UnmarshalJSON(text []byte) error {
 			return err
 		}
 
+		r.Codes = make(map[int]Response)
+
 		if err := dec.Decode(&response); err == nil {
 			r.Codes[statusCode] = response
 		}

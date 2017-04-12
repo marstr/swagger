@@ -12,6 +12,7 @@ const (
 )
 
 // Swagger hosts the properties belonging to an entire Swagger document.
+// Documentation can be found here: http://swagger.io/specification/#swagger-object-14
 type Swagger struct {
 	Swagger             string                 `json:"swagger"`
 	Info                Info                   `json:"info"`
