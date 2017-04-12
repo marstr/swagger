@@ -1,5 +1,7 @@
 package swagger
 
+import "fmt"
+
 type Scheme string
 
 const (
@@ -20,7 +22,7 @@ type Swagger struct {
 	Produces            *[]string              `json:"produces,omitempty"`
 	Paths               *Paths                 `json:"paths,omitempty"`
 	Definitions         *Definitions           `json:"definitions,omitempty"`
-	Parameters          *Parameters            `json:"parameters,omitempty"`
+	Parameters          *map[string]Parameter  `json:"parameters,omitempty"`
 	Responses           *Responses             `json:"responses,omitempty"`
 	SecurityDefinitions *SecurityDefinitions   `json:"securityDefinitions,omitempty"`
 	Security            *map[string][]string   `json:"security,omitempty"`
@@ -28,7 +30,21 @@ type Swagger struct {
 	ExternalDocs        *ExternalDocumentation `json:"externalDocs,omitempty"`
 }
 
-// Visit alerts a Visitor to execute against this Swagger.
-func (swag Swagger) Visit(caller Visitor) {
-	caller.VisitSwagger(swag)
+// ResolveReference navigates a JSON reference that is rooted in this Swagger.
+func (s Swagger) ResolveReference(path string) (interface{}, error) {
+	current, remaining := nextJSONReferencePathElement(path)
+
+	var decodedElement string
+	if temp, err := unescapeJSONReferencePathElement(current); err == nil {
+		decodedElement = temp
+	} else {
+		return nil, err
+	}
+
+	switch decodedElement {
+	case "#":
+		return s.ResolveReference(remaining)
+	default:
+		return nil, fmt.Errorf("element '%s' not present in Swagger", decodedElement)
+	}
 }

@@ -10,8 +10,7 @@ const (
 	ParameterLocationBody     = "body"
 )
 
-type Parameters map[string]Parameter
-
+// Parameter captures details about a single piece of data that will be transferred.
 type Parameter struct {
 	Name        string            `json:"name"`
 	In          ParameterLocation `json:"in"`
@@ -29,9 +28,4 @@ type NonBodyParameter struct {
 	Format          *string
 	AllowEmptyValue *bool `json:"allowEmptyValue,omitempty"`
 	JSONValidation
-}
-
-// Visit alerts a Visitor
-func (params Parameters) Visit(visitor Visitor) error {
-	return visitor.VisitParameters(params)
 }
