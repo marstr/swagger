@@ -1,7 +1,6 @@
 package swagger
 
-type Paths map[string]Path
-
+// Path contains each operation that is exposed via various HTTP Request Types.
 type Path struct {
 	Get        *Operation `json:"get,omitempty"`
 	Put        *Operation `json:"put,omitempty"`

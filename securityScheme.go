@@ -16,8 +16,6 @@ const (
 	SecuritySchemeFlowAccessCode  = "accessCode"
 )
 
-type SecurityDefinitions map[string]SecurityScheme
-
 type SecurityScheme struct {
 	Type             string                  `json:"type"`
 	Description      *string                 `json:"description,omitempty"`
