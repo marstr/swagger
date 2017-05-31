@@ -26,7 +26,7 @@ type Swagger struct {
 	Parameters          *map[string]Parameter      `json:"parameters,omitempty"`
 	Responses           *Responses                 `json:"responses,omitempty"`
 	SecurityDefinitions *map[string]SecurityScheme `json:"securityDefinitions,omitempty"`
-	Security            *map[string][]string       `json:"security,omitempty"`
+	Security            *SecurityRequirement       `json:"security,omitempty"`
 	Tags                *[]Tag                     `json:"tags,omitempty"`
 	ExternalDocs        *ExternalDocumentation     `json:"externalDocs,omitempty"`
 }
