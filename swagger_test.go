@@ -11,7 +11,7 @@ import (
 
 func TestSwagger_UnmarshalJSON(t *testing.T) {
 	testcases := []string{
-		filepath.Join("testdata", "petstore.json"),
+		filepath.Join("testdata", "petstore", "swagger.json"),
 	}
 
 	for _, tc := range testcases {
