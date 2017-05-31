@@ -12,6 +12,7 @@ import (
 func TestSwagger_UnmarshalJSON(t *testing.T) {
 	testcases := []string{
 		filepath.Join("testdata", "petstore", "swagger.json"),
+		filepath.Join("testdata", "azure-rest-api-specs", "arm-hdinsight", "2015-03-01-preview", "swagger", "operations.json"),
 	}
 
 	for _, tc := range testcases {
