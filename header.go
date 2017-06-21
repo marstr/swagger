@@ -5,20 +5,20 @@ type HeaderType string
 
 // HeaderType known values are enumerated here.
 const (
-	HeaderTypeString  = "string"
-	HeaderTypeNumber  = "number"
-	HeaderTypeInteger = "integer"
-	HeaderTypeBoolean = "boolean"
-	HeaderTypeArray   = "array"
+	HeaderTypeString  HeaderType = "string"
+	HeaderTypeNumber  HeaderType = "number"
+	HeaderTypeInteger HeaderType = "integer"
+	HeaderTypeBoolean HeaderType = "boolean"
+	HeaderTypeArray   HeaderType = "array"
 )
 
 type HeaderCollectionFormat string
 
 const (
-	HeaderCollectionFormatCSV   = "csv"
-	HeaderCollectionFormatSSV   = "ssv"
-	HeaderCollectionFormatTSV   = "tsv"
-	HeaderCollectionFormatPipes = "pipes"
+	HeaderCollectionFormatCSV   HeaderCollectionFormat = "csv"
+	HeaderCollectionFormatSSV   HeaderCollectionFormat = "ssv"
+	HeaderCollectionFormatTSV   HeaderCollectionFormat = "tsv"
+	HeaderCollectionFormatPipes HeaderCollectionFormat = "pipes"
 )
 
 type Headers map[string]Header

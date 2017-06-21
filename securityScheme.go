@@ -3,17 +3,17 @@ package swagger
 type SecuritySchemeLocation string
 
 const (
-	SecuritySchemeLocationQuery  = "query"
-	SecuritySchemeLocationHeader = "header"
+	SecuritySchemeLocationQuery  SecuritySchemeLocation = "query"
+	SecuritySchemeLocationHeader SecuritySchemeLocation = "header"
 )
 
 type SecuritySchemeFlow string
 
 const (
-	SecuritySchemeFlowImplicit    = "implicit"
-	SecuritySchemeFlowPassword    = "password"
-	SecuritySchemeFlowApplication = "application"
-	SecuritySchemeFlowAccessCode  = "accessCode"
+	SecuritySchemeFlowImplicit    SecuritySchemeFlow = "implicit"
+	SecuritySchemeFlowPassword    SecuritySchemeFlow = "password"
+	SecuritySchemeFlowApplication SecuritySchemeFlow = "application"
+	SecuritySchemeFlowAccessCode  SecuritySchemeFlow = "accessCode"
 )
 
 type SecurityScheme struct {

@@ -5,10 +5,10 @@ import "fmt"
 type Scheme string
 
 const (
-	SchemeHTTP  = "http"
-	SchemeHTTPS = "https"
-	SchemeWS    = "ws"
-	SchemeWSS   = "wss"
+	SchemeHTTP  Scheme = "http"
+	SchemeHTTPS Scheme = "https"
+	SchemeWS    Scheme = "ws"
+	SchemeWSS   Scheme = "wss"
 )
 
 // Swagger hosts the properties belonging to an entire Swagger document.
